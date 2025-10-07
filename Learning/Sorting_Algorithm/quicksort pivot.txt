@@ -1,0 +1,14 @@
+Tradeoffs — quick checklist
+
+Randomized pivot — excellent average case, very simple, probabilistic protection against worst case. Use when you want simple, fast, robust code.
+
+Median-of-three (first, middle, last) — cheap heuristic that often avoids bad splits on partially sorted input. Good practical default.
+
+Tukey’s ninther (median of three medians) — better quality pivot for big arrays, more comparisons; used when partitions must be good.
+
+Median-of-medians (select) — deterministic O(n) pivot with worst-case O(n log n) Quicksort; heavy to implement, 
+only use when worst-case guarantees are required.
+
+Always-first / always-last — simplest but disastrous on already-sorted or reverse-sorted input (degenerates to O(n²)).
+
+Special case: many duplicates — use three-way partitioning (Dutch National Flag) + any pivot; this handles equals cheaply.
